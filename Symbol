@@ -709,6 +709,11 @@
                     "type": "variable",
                     "variable": "sym.%player%.cd",
                     "scope": "game"
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "sym.%player%.bcd",
+                    "scope": "game"
                   }
                 ]
               }
@@ -853,7 +858,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "&dПКМ &7— следующий пункт, &dЛКМ &7— выбрать.",
+                    "text": "&dПКМ &7— следующий пункт, &dЛКМ &7или &dF &7— выбрать.",
                     "parsing": "legacy"
                   }
                 ]
@@ -1139,7 +1144,7 @@
               "name": "value",
               "value": {
                 "type": "game_value",
-                "game_value": "event_equipment_slot",
+                "game_value": "event_interaction",
                 "selection": "null"
               }
             },
@@ -1147,7 +1152,7 @@
               "name": "compare",
               "value": {
                 "type": "text",
-                "text": "hand",
+                "text": "right_click_block",
                 "parsing": "plain"
               }
             },
@@ -1156,6 +1161,196 @@
               "value": {
                 "type": "enum",
                 "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "if_game_block_equals",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "game_value",
+                    "game_value": "event_block_location",
+                    "selection": "null"
+                  }
+                },
+                {
+                  "name": "blocks",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:cherry_button\"}"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_exists",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.%player%.room",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_subtract",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "dt",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "game_value",
+                                "game_value": "timestamp",
+                                "selection": "null"
+                              },
+                              {
+                                "type": "variable",
+                                "variable": "sym.%player%.bcd",
+                                "scope": "game"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "operations": []
+                    },
+                    {
+                      "action": "if_variable_greater",
+                      "values": [
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "dt",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "compare",
+                          "value": {
+                            "type": "number",
+                            "number": 150
+                          }
+                        }
+                      ],
+                      "operations": [
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "sym.%player%.bcd",
+                                "scope": "game"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "game_value",
+                                "game_value": "timestamp",
+                                "selection": "null"
+                              }
+                            }
+                          ],
+                          "operations": []
+                        },
+                        {
+                          "action": "call_function",
+                          "values": [
+                            {
+                              "name": "function_name",
+                              "value": {
+                                "type": "text",
+                                "text": "sym.press",
+                                "parsing": "plain"
+                              }
+                            },
+                            {
+                              "name": "args",
+                              "value": {
+                                "type": "map",
+                                "values": {}
+                              }
+                            }
+                          ],
+                          "operations": []
+                        }
+                      ],
+                      "is_inverted": false
+                    }
+                  ],
+                  "is_inverted": false
+                }
+              ],
+              "is_inverted": false
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_right_click",
+      "position": 20,
+      "operations": [
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "MAIN_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "TYPE_ONLY"
               }
             }
           ],
@@ -1233,50 +1428,6 @@
                         }
                       ],
                       "operations": []
-                    },
-                    {
-                      "action": "if_variable_exists",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "sym.%player%.room",
-                            "scope": "game"
-                          }
-                        },
-                        {
-                          "name": "compare_type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "ANY"
-                          }
-                        }
-                      ],
-                      "operations": [
-                        {
-                          "action": "call_function",
-                          "values": [
-                            {
-                              "name": "function_name",
-                              "value": {
-                                "type": "text",
-                                "text": "sym.press",
-                                "parsing": "plain"
-                              }
-                            },
-                            {
-                              "name": "args",
-                              "value": {
-                                "type": "map",
-                                "values": {}
-                              }
-                            }
-                          ],
-                          "operations": []
-                        }
-                      ],
-                      "is_inverted": false
                     }
                   ],
                   "is_inverted": false
@@ -1305,317 +1456,442 @@
               ],
               "operations": [
                 {
-                  "action": "if_player_is_holding",
+                  "action": "game_cancel_event",
+                  "values": [],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_subtract",
                   "values": [
                     {
-                      "name": "items",
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dt",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
                       "value": {
                         "type": "array",
                         "values": [
                           {
-                            "type": "item",
-                            "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
+                            "type": "game_value",
+                            "game_value": "timestamp",
+                            "selection": "null"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "sym.%player%.cd",
+                            "scope": "game"
                           }
                         ]
                       }
-                    },
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "if_variable_greater",
+                  "values": [
                     {
-                      "name": "hand_slot",
+                      "name": "value",
                       "value": {
-                        "type": "enum",
-                        "enum": "MAIN_HAND"
+                        "type": "variable",
+                        "variable": "dt",
+                        "scope": "line"
                       }
                     },
                     {
-                      "name": "comparison_mode",
+                      "name": "compare",
                       "value": {
-                        "type": "enum",
-                        "enum": "TYPE_ONLY"
+                        "type": "number",
+                        "number": 150
                       }
                     }
                   ],
                   "operations": [
                     {
-                      "action": "game_cancel_event",
-                      "values": [],
-                      "operations": []
-                    },
-                    {
-                      "action": "set_variable_subtract",
+                      "action": "set_variable_value",
                       "values": [
                         {
                           "name": "variable",
                           "value": {
                             "type": "variable",
-                            "variable": "dt",
-                            "scope": "line"
+                            "variable": "sym.%player%.cd",
+                            "scope": "game"
                           }
                         },
                         {
                           "name": "value",
                           "value": {
-                            "type": "array",
-                            "values": [
-                              {
-                                "type": "game_value",
-                                "game_value": "timestamp",
-                                "selection": "null"
-                              },
-                              {
-                                "type": "variable",
-                                "variable": "sym.%player%.cd",
-                                "scope": "game"
-                              }
-                            ]
+                            "type": "game_value",
+                            "game_value": "timestamp",
+                            "selection": "null"
                           }
                         }
                       ],
                       "operations": []
                     },
                     {
-                      "action": "if_variable_greater",
+                      "action": "set_variable_increment",
                       "values": [
                         {
-                          "name": "value",
+                          "name": "variable",
                           "value": {
                             "type": "variable",
-                            "variable": "dt",
-                            "scope": "line"
+                            "variable": "sym.%player%.sel",
+                            "scope": "game"
                           }
                         },
                         {
-                          "name": "compare",
+                          "name": "number",
                           "value": {
                             "type": "number",
-                            "number": 150
+                            "number": 1
                           }
                         }
                       ],
-                      "operations": [
+                      "operations": []
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
                         {
-                          "action": "set_variable_value",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "sym.%player%.cd",
-                                "scope": "game"
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "game_value",
-                                "game_value": "timestamp",
-                                "selection": "null"
-                              }
-                            }
-                          ],
-                          "operations": []
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "sym.menu",
+                            "parsing": "plain"
+                          }
                         },
                         {
-                          "action": "if_variable_equals",
-                          "values": [
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "game_value",
-                                "game_value": "event_interaction",
-                                "selection": "null"
-                              }
-                            },
-                            {
-                              "name": "compare",
-                              "value": {
-                                "type": "array",
-                                "values": [
-                                  {
-                                    "type": "text",
-                                    "text": "left_click_air",
-                                    "parsing": "plain"
-                                  },
-                                  {
-                                    "type": "text",
-                                    "text": "left_click_block",
-                                    "parsing": "plain"
-                                  }
-                                ]
-                              }
-                            },
-                            {
-                              "name": "compare_type",
-                              "value": {
-                                "type": "enum",
-                                "enum": "ANY"
-                              }
-                            }
-                          ],
-                          "operations": [
-                            {
-                              "action": "call_function",
-                              "values": [
-                                {
-                                  "name": "function_name",
-                                  "value": {
-                                    "type": "text",
-                                    "text": "sym.pick",
-                                    "parsing": "plain"
-                                  }
-                                },
-                                {
-                                  "name": "args",
-                                  "value": {
-                                    "type": "map",
-                                    "values": {}
-                                  }
-                                }
-                              ],
-                              "operations": []
-                            }
-                          ],
-                          "is_inverted": false
-                        },
-                        {
-                          "action": "if_variable_equals",
-                          "values": [
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "game_value",
-                                "game_value": "event_interaction",
-                                "selection": "null"
-                              }
-                            },
-                            {
-                              "name": "compare",
-                              "value": {
-                                "type": "array",
-                                "values": [
-                                  {
-                                    "type": "text",
-                                    "text": "right_click_air",
-                                    "parsing": "plain"
-                                  },
-                                  {
-                                    "type": "text",
-                                    "text": "right_click_block",
-                                    "parsing": "plain"
-                                  }
-                                ]
-                              }
-                            },
-                            {
-                              "name": "compare_type",
-                              "value": {
-                                "type": "enum",
-                                "enum": "ANY"
-                              }
-                            }
-                          ],
-                          "operations": [
-                            {
-                              "action": "set_variable_increment",
-                              "values": [
-                                {
-                                  "name": "variable",
-                                  "value": {
-                                    "type": "variable",
-                                    "variable": "sym.%player%.sel",
-                                    "scope": "game"
-                                  }
-                                },
-                                {
-                                  "name": "number",
-                                  "value": {
-                                    "type": "number",
-                                    "number": 1
-                                  }
-                                }
-                              ],
-                              "operations": []
-                            },
-                            {
-                              "action": "call_function",
-                              "values": [
-                                {
-                                  "name": "function_name",
-                                  "value": {
-                                    "type": "text",
-                                    "text": "sym.menu",
-                                    "parsing": "plain"
-                                  }
-                                },
-                                {
-                                  "name": "args",
-                                  "value": {
-                                    "type": "map",
-                                    "values": {}
-                                  }
-                                }
-                              ],
-                              "operations": []
-                            },
-                            {
-                              "action": "player_send_action_bar",
-                              "values": [
-                                {
-                                  "name": "messages",
-                                  "value": {
-                                    "type": "array",
-                                    "values": [
-                                      {
-                                        "type": "text",
-                                        "text": "&7Выбрано: %var_local(cur)",
-                                        "parsing": "legacy"
-                                      }
-                                    ]
-                                  }
-                                },
-                                {
-                                  "name": "merging",
-                                  "value": {
-                                    "type": "enum",
-                                    "enum": "SPACES"
-                                  }
-                                }
-                              ],
-                              "operations": []
-                            },
-                            {
-                              "action": "player_play_sound",
-                              "values": [
-                                {
-                                  "name": "sound",
-                                  "value": {
-                                    "type": "sound",
-                                    "sound": "minecraft:ui.button.click",
-                                    "pitch": 1.4,
-                                    "volume": 1.0
-                                  }
-                                },
-                                {
-                                  "name": "location",
-                                  "value": {
-                                    "type": "game_value",
-                                    "game_value": "location",
-                                    "selection": "{\"type\":\"default\"}"
-                                  }
-                                }
-                              ],
-                              "operations": []
-                            }
-                          ],
-                          "is_inverted": false
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
                         }
                       ],
-                      "is_inverted": false
+                      "operations": []
+                    },
+                    {
+                      "action": "player_play_sound",
+                      "values": [
+                        {
+                          "name": "sound",
+                          "value": {
+                            "type": "sound",
+                            "sound": "minecraft:ui.button.click",
+                            "pitch": 1.4,
+                            "volume": 1.0
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "game_value",
+                            "game_value": "location",
+                            "selection": "{\"type\":\"default\"}"
+                          }
+                        }
+                      ],
+                      "operations": []
                     }
                   ],
                   "is_inverted": false
                 }
               ],
               "is_inverted": true
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_left_click",
+      "position": 21,
+      "operations": [
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "MAIN_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "TYPE_ONLY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": [],
+              "operations": []
+            },
+            {
+              "action": "set_variable_subtract",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dt",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "game_value",
+                        "game_value": "timestamp",
+                        "selection": "null"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "sym.%player%.cd",
+                        "scope": "game"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "if_variable_greater",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dt",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 150
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.%player%.cd",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "timestamp",
+                        "selection": "null"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.pick",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ],
+              "is_inverted": false
+            }
+          ],
+          "is_inverted": false
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_swap_hands",
+      "position": 22,
+      "operations": [
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "MAIN_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "TYPE_ONLY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "game_cancel_event",
+              "values": [],
+              "operations": []
+            },
+            {
+              "action": "set_variable_subtract",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dt",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "game_value",
+                        "game_value": "timestamp",
+                        "selection": "null"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "sym.%player%.cd",
+                        "scope": "game"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "if_variable_greater",
+              "values": [
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dt",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 150
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.%player%.cd",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "timestamp",
+                        "selection": "null"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.pick",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ],
+              "is_inverted": false
             }
           ],
           "is_inverted": false
@@ -3542,7 +3818,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "&7Маркер в хотбаре: &dПКМ &7— листать, &dЛКМ &7— выбрать",
+                    "text": "&7Маркер в хотбаре: &dПКМ &7— листать, &dЛКМ &7или &dF &7— выбрать",
                     "parsing": "legacy"
                   },
                   {
@@ -4261,7 +4537,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "&eЛКМ &7— выбрать",
+                    "text": "&eЛКМ &7или &eF &7— выбрать",
                     "parsing": "legacy"
                   }
                 ]
@@ -4405,6 +4681,32 @@
                 "type": "variable",
                 "variable": "codes",
                 "scope": "local"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_send_action_bar",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&7Выбрано: &f%var_local(cur)",
+                    "parsing": "legacy"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "merging",
+              "value": {
+                "type": "enum",
+                "enum": "SPACES"
               }
             }
           ],
