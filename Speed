@@ -1,0 +1,749 @@
+{
+  "handlers": [
+    {
+      "type": "event",
+      "event": "world_start",
+      "position": 0,
+      "operations": [
+        {
+          "action": "game_set_region",
+          "values": [
+            { "name": "location_1", "value": { "type": "location", "x": -15, "y": 63, "z": -15, "yaw": 0, "pitch": 0 } },
+            { "name": "location_2", "value": { "type": "location", "x": 15, "y": 63, "z": 15, "yaw": 0, "pitch": 0 } },
+            { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:white_concrete\"}" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_block",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 10, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } },
+            { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:dispenser\"}" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_block",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 12, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } },
+            { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:dispenser\"}" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_block",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 14, "y": 64, "z": 0, "yaw": 0, "pitch": 0 } },
+            { "name": "block", "value": { "type": "item", "item": "{Count:1b,id:\"minecraft:dispenser\"}" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 10, "y": 65.5, "z": 0, "yaw": 0, "pitch": 0 } }
+          ],
+          "operations": [
+            {
+              "action": "entity_set_custom_name",
+              "values": [
+                { "name": "name", "value": { "type": "text", "text": "§f§lОбычное яйцо\n§a100 💰", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_invisible",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_no_gravity",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 12, "y": 65.5, "z": 0, "yaw": 0, "pitch": 0 } }
+          ],
+          "operations": [
+            {
+              "action": "entity_set_custom_name",
+              "values": [
+                { "name": "name", "value": { "type": "text", "text": "§9§lРедкое яйцо\n§b500 💰", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_invisible",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_no_gravity",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "game_spawn_armor_stand",
+          "values": [
+            { "name": "location", "value": { "type": "location", "x": 14, "y": 65.5, "z": 0, "yaw": 0, "pitch": 0 } }
+          ],
+          "operations": [
+            {
+              "action": "entity_set_custom_name",
+              "values": [
+                { "name": "name", "value": { "type": "text", "text": "§6§lЛегендарное яйцо\n§e2000 💰", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_invisible",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "entity_set_no_gravity",
+              "values": [
+                { "name": "state", "value": { "type": "boolean", "boolean": true } }
+              ],
+              "operations": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_interact",
+      "position": 0,
+      "operations": [
+        {
+          "action": "if_player_interaction_type_equals",
+          "values": [
+            { "name": "interaction_type", "value": { "type": "enum", "enum": "RIGHT_CLICK_BLOCK" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_get_all_coordinates",
+              "values": [
+                { "name": "location", "value": { "type": "game_value", "game_value": "event_block_location", "selection": "null" } },
+                { "name": "x", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
+                { "name": "y", "value": { "type": "variable", "variable": "by", "scope": "line" } },
+                { "name": "z", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
+                { "name": "yaw", "value": { "type": "variable", "variable": "byaw", "scope": "line" } },
+                { "name": "pitch", "value": { "type": "variable", "variable": "bpitch", "scope": "line" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
+                { "name": "compare", "value": { "type": "number", "number": 10 } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "by", "scope": "line" } },
+                    { "name": "compare", "value": { "type": "number", "number": 64 } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
+                        { "name": "compare", "value": { "type": "number", "number": 0 } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "call_function",
+                          "values": [
+                            { "name": "name", "value": { "type": "text", "text": "open_egg", "parsing": "plain" } },
+                            { "name": "args", "value": { "type": "map", "map": { "{\"type\":\"text\",\"text\":\"egg_type\",\"parsing\":\"plain\"}": { "type": "text", "text": "common", "parsing": "plain" } } } }
+                          ],
+                          "operations": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
+                { "name": "compare", "value": { "type": "number", "number": 12 } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "by", "scope": "line" } },
+                    { "name": "compare", "value": { "type": "number", "number": 64 } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
+                        { "name": "compare", "value": { "type": "number", "number": 0 } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "call_function",
+                          "values": [
+                            { "name": "name", "value": { "type": "text", "text": "open_egg", "parsing": "plain" } },
+                            { "name": "args", "value": { "type": "map", "map": { "{\"type\":\"text\",\"text\":\"egg_type\",\"parsing\":\"plain\"}": { "type": "text", "text": "rare", "parsing": "plain" } } } }
+                          ],
+                          "operations": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "if_variable_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "bx", "scope": "line" } },
+                { "name": "compare", "value": { "type": "number", "number": 14 } }
+              ],
+              "operations": [
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "by", "scope": "line" } },
+                    { "name": "compare", "value": { "type": "number", "number": 64 } }
+                  ],
+                  "operations": [
+                    {
+                      "action": "if_variable_equals",
+                      "values": [
+                        { "name": "variable", "value": { "type": "variable", "variable": "bz", "scope": "line" } },
+                        { "name": "compare", "value": { "type": "number", "number": 0 } }
+                      ],
+                      "operations": [
+                        {
+                          "action": "call_function",
+                          "values": [
+                            { "name": "name", "value": { "type": "text", "text": "open_egg", "parsing": "plain" } },
+                            { "name": "args", "value": { "type": "map", "map": { "{\"type\":\"text\",\"text\":\"egg_type\",\"parsing\":\"plain\"}": { "type": "text", "text": "legendary", "parsing": "plain" } } } }
+                          ],
+                          "operations": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "open_egg",
+      "position": 0,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": [
+              {
+                "type": "parameter",
+                "type_key": "singular",
+                "name": "egg_type",
+                "value_type": "text",
+                "is_required": "true",
+                "default_value": "{}",
+                "slot": 0,
+                "description_slot": 9,
+                "description": "{\"translations\":{},\"fallback\":{\"rawText\":\"Тип яйца\",\"parsingType\":\"LEGACY\"}}"
+              }
+            ]
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "common", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_greater_or_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                { "name": "number", "value": { "type": "number", "number": 100 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_decrement",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                    { "name": "number", "value": { "type": "number", "number": 100 } }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_create_map",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "common_pets", "scope": "line" } },
+                    { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "🐰 Кролик", "parsing": "plain" }, { "type": "text", "text": "🦊 Лиса", "parsing": "plain" }, { "type": "text", "text": "🐱 Кот", "parsing": "plain" } ] } },
+                    { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 2 }, { "type": "number", "number": 2 }, { "type": "number", "number": 2 } ] } }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "message", "value": { "type": "text", "text": "§c❌ Нужно §e100 §cмонет!", "parsing": "legacy" } }
+                  ],
+                  "operations": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "rare", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_greater_or_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                { "name": "number", "value": { "type": "number", "number": 500 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_decrement",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                    { "name": "number", "value": { "type": "number", "number": 500 } }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_create_map",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "rare_pets", "scope": "line" } },
+                    { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "🐺 Волк", "parsing": "plain" }, { "type": "text", "text": "🐉 Дракон", "parsing": "plain" }, { "type": "text", "text": "🔥 Феникс", "parsing": "plain" } ] } },
+                    { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 5 }, { "type": "number", "number": 5 }, { "type": "number", "number": 5 } ] } }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "message", "value": { "type": "text", "text": "§c❌ Нужно §e500 §cмонет!", "parsing": "legacy" } }
+                  ],
+                  "operations": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "legendary", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_greater_or_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                { "name": "number", "value": { "type": "number", "number": 2000 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_decrement",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                    { "name": "number", "value": { "type": "number", "number": 2000 } }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_create_map",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "legendary_pets", "scope": "line" } },
+                    { "name": "keys", "value": { "type": "array", "values": [ { "type": "text", "text": "🌌 Космо-дракон", "parsing": "plain" }, { "type": "text", "text": "⚡ Бог", "parsing": "plain" }, { "type": "text", "text": "🛸 НЛО", "parsing": "plain" } ] } },
+                    { "name": "values", "value": { "type": "array", "values": [ { "type": "number", "number": 15 }, { "type": "number", "number": 15 }, { "type": "number", "number": 15 } ] } }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "message", "value": { "type": "text", "text": "§c❌ Нужно §e2000 §cмонет!", "parsing": "legacy" } }
+                  ],
+                  "operations": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "§e§l🥚 Трясётся...", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "", "parsing": "plain" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+            { "name": "stay", "value": { "type": "number", "number": 30 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "control_wait",
+          "values": [
+            { "name": "duration", "value": { "type": "number", "number": 1.5 } },
+            { "name": "time_unit", "value": { "type": "enum", "enum": "SECONDS" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "§c§l💥 Трескается!", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "", "parsing": "plain" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 5 } },
+            { "name": "stay", "value": { "type": "number", "number": 20 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "control_wait",
+          "values": [
+            { "name": "duration", "value": { "type": "number", "number": 1 } },
+            { "name": "time_unit", "value": { "type": "enum", "enum": "SECONDS" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "§f§l✨ ✨ ✨", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "", "parsing": "plain" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 5 } },
+            { "name": "stay", "value": { "type": "number", "number": 10 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 10 } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "control_wait",
+          "values": [
+            { "name": "duration", "value": { "type": "number", "number": 0.5 } },
+            { "name": "time_unit", "value": { "type": "enum", "enum": "SECONDS" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "common", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_get_map_random_entry",
+              "values": [
+                { "name": "variable_key", "value": { "type": "variable", "variable": "pet_name", "scope": "line" } },
+                { "name": "variable_value", "value": { "type": "variable", "variable": "pet_mult", "scope": "line" } },
+                { "name": "map", "value": { "type": "variable", "variable": "common_pets", "scope": "line" } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "rare", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_get_map_random_entry",
+              "values": [
+                { "name": "variable_key", "value": { "type": "variable", "variable": "pet_name", "scope": "line" } },
+                { "name": "variable_value", "value": { "type": "variable", "variable": "pet_mult", "scope": "line" } },
+                { "name": "map", "value": { "type": "variable", "variable": "rare_pets", "scope": "line" } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "egg_type", "scope": "line" } },
+            { "name": "compare", "value": { "type": "text", "text": "legendary", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_get_map_random_entry",
+              "values": [
+                { "name": "variable_key", "value": { "type": "variable", "variable": "pet_name", "scope": "line" } },
+                { "name": "variable_value", "value": { "type": "variable", "variable": "pet_mult", "scope": "line" } },
+                { "name": "map", "value": { "type": "variable", "variable": "legendary_pets", "scope": "line" } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "current_pet", "scope": "save" } },
+            { "name": "value", "value": { "type": "variable", "variable": "pet_name", "scope": "line" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            { "name": "variable", "value": { "type": "variable", "variable": "current_pet_mult", "scope": "save" } },
+            { "name": "value", "value": { "type": "variable", "variable": "pet_mult", "scope": "line" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_send_title",
+          "values": [
+            { "name": "title", "value": { "type": "text", "text": "§a§l🎉 %var_line(pet_name)!", "parsing": "legacy" } },
+            { "name": "subtitle", "value": { "type": "text", "text": "§fМножитель: §ex%var_line(pet_mult)", "parsing": "legacy" } },
+            { "name": "fade_in", "value": { "type": "number", "number": 10 } },
+            { "name": "stay", "value": { "type": "number", "number": 60 } },
+            { "name": "fade_out", "value": { "type": "number", "number": 20 } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            { "name": "sound", "value": { "type": "sound", "sound": "entity.player.levelup", "source": "master", "volume": 1, "pitch": 1.5 } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_spawn_particle",
+          "values": [
+            { "name": "particle", "value": { "type": "particle", "particle": "totem_of_undying", "amount": 50, "spread_x": 1, "spread_y": 1, "spread_z": 1, "speed": 0.5 } },
+            { "name": "location", "value": { "type": "game_value", "game_value": "player_location", "selection": "null" } }
+          ],
+          "operations": []
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_chat",
+      "position": 0,
+      "operations": [
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "message", "value": { "type": "text", "text": "prestige", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "if_variable_greater_or_equals",
+              "values": [
+                { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                { "name": "number", "value": { "type": "number", "number": 1000 } }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_increment",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "prestige_mult", "scope": "save" } },
+                    { "name": "number", "value": { "type": "number", "number": 1 } }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    { "name": "variable", "value": { "type": "variable", "variable": "speed_balance", "scope": "save" } },
+                    { "name": "value", "value": { "type": "number", "number": 0 } }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "message", "value": { "type": "text", "text": "§d§l⭐ ПРЕСТИЖ! §fНовый множитель: §ex%math(%var_save(prestige_mult) + 1)", "parsing": "legacy" } }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "else",
+              "values": [],
+              "operations": [
+                {
+                  "action": "player_send_message",
+                  "values": [
+                    { "name": "message", "value": { "type": "text", "text": "§c❌ Нужно §e1000 §cмонет!", "parsing": "legacy" } }
+                  ],
+                  "operations": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "message", "value": { "type": "text", "text": "top", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§6§l══════ СТАТИСТИКА ══════", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§e💰 Баланс: §f%var_save(speed_balance)", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§d⭐ Престиж: §f%var_save(prestige_mult)", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§b🐾 Пет: §f%var_save(current_pet) §7(x%var_save(current_pet_mult))", "parsing": "legacy" } }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "if_player_chat_message_equals",
+          "values": [
+            { "name": "message", "value": { "type": "text", "text": "shop", "parsing": "plain" } }
+          ],
+          "operations": [
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§6§l══════ МАГАЗИН ══════", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§f🥚 §aОбычное яйцо §7- §e100💰 §7(🐰🦊🐱)", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§9🥚 §bРедкое яйцо §7- §e500💰 §7(🐺🐉🔥)", "parsing": "legacy" } }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                { "name": "message", "value": { "type": "text", "text": "§6🥚 §eЛегендарное яйцо §7- §e2000💰 §7(🌌⚡🛸)", "parsing": "legacy" } }
+              ],
+              "operations": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "process",
+      "name": "trail_loop",
+      "position": 0,
+      "operations": [
+        {
+          "action": "control_wait",
+          "values": [
+            { "name": "duration", "value": { "type": "number", "number": 2 } },
+            { "name": "time_unit", "value": { "type": "enum", "enum": "TICKS" } }
+          ],
+          "operations": []
+        },
+        {
+          "action": "if_player_is_moving",
+          "values": [],
+          "operations": [
+            {
+              "action": "player_spawn_particle",
+              "values": [
+                { "name": "particle", "value": { "type": "particle", "particle": "flame", "amount": 3, "spread_x": 0.2, "spread_y": 0.1, "spread_z": 0.2, "speed": 0.05 } },
+                { "name": "location", "value": { "type": "game_value", "game_value": "player_location", "selection": "null" } }
+              ],
+              "operations": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
