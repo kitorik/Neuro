@@ -853,12 +853,12 @@
                   },
                   {
                     "type": "text",
-                    "text": "&7Ты в лобби. Маркер &dКомнаты &7— в первом слоте:",
+                    "text": "&7Ты в лобби. Меню &dКомнат &7— в первом слоте:",
                     "parsing": "legacy"
                   },
                   {
                     "type": "text",
-                    "text": "&dПКМ &7— следующий пункт, &dЛКМ &7или &dF &7— выбрать.",
+                    "text": "&dПКМ &7— открыть меню комнат.",
                     "parsing": "legacy"
                   }
                 ]
@@ -1078,7 +1078,7 @@
                         "values": [
                           {
                             "type": "text",
-                            "text": "&dПКМ &7маркером — листать, &dЛКМ &7— выбрать",
+                            "text": "&dПКМ &7— открыть меню комнат.",
                             "parsing": "legacy"
                           }
                         ]
@@ -1356,545 +1356,32 @@
           ],
           "operations": [
             {
-              "action": "if_variable_equals",
+              "action": "game_cancel_event",
+              "values": [],
+              "operations": []
+            },
+            {
+              "action": "call_function",
               "values": [
                 {
-                  "name": "value",
-                  "value": {
-                    "type": "game_value",
-                    "game_value": "event_interaction",
-                    "selection": "null"
-                  }
-                },
-                {
-                  "name": "compare",
+                  "name": "function_name",
                   "value": {
                     "type": "text",
-                    "text": "right_click_block",
+                    "text": "sym.main_menu",
                     "parsing": "plain"
                   }
                 },
                 {
-                  "name": "compare_type",
+                  "name": "args",
                   "value": {
-                    "type": "enum",
-                    "enum": "ANY"
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "if_game_block_equals",
-                  "values": [
-                    {
-                      "name": "location",
-                      "value": {
-                        "type": "game_value",
-                        "game_value": "event_block_location",
-                        "selection": "null"
-                      }
-                    },
-                    {
-                      "name": "blocks",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "item",
-                            "item": "{Count:1b,id:\"minecraft:cherry_button\"}"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": [
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "btn",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": 1
-                          }
-                        }
-                      ],
-                      "operations": []
-                    }
-                  ],
-                  "is_inverted": false
-                }
-              ],
-              "is_inverted": false
-            },
-            {
-              "action": "if_variable_exists",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "btn",
-                    "scope": "local"
-                  }
-                },
-                {
-                  "name": "compare_type",
-                  "value": {
-                    "type": "enum",
-                    "enum": "ANY"
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "game_cancel_event",
-                  "values": [],
-                  "operations": []
-                },
-                {
-                  "action": "set_variable_subtract",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "dt",
-                        "scope": "line"
-                      }
-                    },
-                    {
-                      "name": "value",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "game_value",
-                            "game_value": "timestamp",
-                            "selection": "null"
-                          },
-                          {
-                            "type": "variable",
-                            "variable": "sym.%player%.cd",
-                            "scope": "game"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": []
-                },
-                {
-                  "action": "if_variable_greater",
-                  "values": [
-                    {
-                      "name": "value",
-                      "value": {
-                        "type": "variable",
-                        "variable": "dt",
-                        "scope": "line"
-                      }
-                    },
-                    {
-                      "name": "compare",
-                      "value": {
-                        "type": "number",
-                        "number": 150
-                      }
-                    }
-                  ],
-                  "operations": [
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "sym.%player%.cd",
-                            "scope": "game"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "game_value",
-                            "game_value": "timestamp",
-                            "selection": "null"
-                          }
-                        }
-                      ],
-                      "operations": []
-                    },
-                    {
-                      "action": "set_variable_increment",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "sym.%player%.sel",
-                            "scope": "game"
-                          }
-                        },
-                        {
-                          "name": "number",
-                          "value": {
-                            "type": "number",
-                            "number": 1
-                          }
-                        }
-                      ],
-                      "operations": []
-                    },
-                    {
-                      "action": "call_function",
-                      "values": [
-                        {
-                          "name": "function_name",
-                          "value": {
-                            "type": "text",
-                            "text": "sym.menu",
-                            "parsing": "plain"
-                          }
-                        },
-                        {
-                          "name": "args",
-                          "value": {
-                            "type": "map",
-                            "values": {}
-                          }
-                        }
-                      ],
-                      "operations": []
-                    },
-                    {
-                      "action": "player_play_sound",
-                      "values": [
-                        {
-                          "name": "sound",
-                          "value": {
-                            "type": "sound",
-                            "sound": "minecraft:ui.button.click",
-                            "pitch": 1.4,
-                            "volume": 1.0
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "game_value",
-                            "game_value": "location",
-                            "selection": "{\"type\":\"default\"}"
-                          }
-                        }
-                      ],
-                      "operations": []
-                    }
-                  ],
-                  "is_inverted": false
-                }
-              ],
-              "is_inverted": true
-            }
-          ],
-          "is_inverted": false
-        }
-      ]
-    },
-    {
-      "type": "event",
-      "event": "player_left_click",
-      "position": 21,
-      "operations": [
-        {
-          "action": "if_player_is_holding",
-          "values": [
-            {
-              "name": "items",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "item",
-                    "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hand_slot",
-              "value": {
-                "type": "enum",
-                "enum": "MAIN_HAND"
-              }
-            },
-            {
-              "name": "comparison_mode",
-              "value": {
-                "type": "enum",
-                "enum": "TYPE_ONLY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "game_cancel_event",
-              "values": [],
-              "operations": []
-            },
-            {
-              "action": "set_variable_subtract",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "dt",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "game_value",
-                        "game_value": "timestamp",
-                        "selection": "null"
-                      },
-                      {
-                        "type": "variable",
-                        "variable": "sym.%player%.cd",
-                        "scope": "game"
-                      }
-                    ]
+                    "type": "map",
+                    "values": {}
                   }
                 }
               ],
               "operations": []
-            },
-            {
-              "action": "if_variable_greater",
-              "values": [
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "variable",
-                    "variable": "dt",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "compare",
-                  "value": {
-                    "type": "number",
-                    "number": 150
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "set_variable_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "sym.%player%.cd",
-                        "scope": "game"
-                      }
-                    },
-                    {
-                      "name": "value",
-                      "value": {
-                        "type": "game_value",
-                        "game_value": "timestamp",
-                        "selection": "null"
-                      }
-                    }
-                  ],
-                  "operations": []
-                },
-                {
-                  "action": "call_function",
-                  "values": [
-                    {
-                      "name": "function_name",
-                      "value": {
-                        "type": "text",
-                        "text": "sym.pick",
-                        "parsing": "plain"
-                      }
-                    },
-                    {
-                      "name": "args",
-                      "value": {
-                        "type": "map",
-                        "values": {}
-                      }
-                    }
-                  ],
-                  "operations": []
-                }
-              ],
-              "is_inverted": false
             }
-          ],
-          "is_inverted": false
-        }
-      ]
-    },
-    {
-      "type": "event",
-      "event": "player_swap_hands",
-      "position": 22,
-      "operations": [
-        {
-          "action": "if_player_is_holding",
-          "values": [
-            {
-              "name": "items",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "item",
-                    "item": "{Count:1b,id:\"minecraft:recovery_compass\"}"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "hand_slot",
-              "value": {
-                "type": "enum",
-                "enum": "MAIN_HAND"
-              }
-            },
-            {
-              "name": "comparison_mode",
-              "value": {
-                "type": "enum",
-                "enum": "TYPE_ONLY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "game_cancel_event",
-              "values": [],
-              "operations": []
-            },
-            {
-              "action": "set_variable_subtract",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "dt",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "game_value",
-                        "game_value": "timestamp",
-                        "selection": "null"
-                      },
-                      {
-                        "type": "variable",
-                        "variable": "sym.%player%.cd",
-                        "scope": "game"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "operations": []
-            },
-            {
-              "action": "if_variable_greater",
-              "values": [
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "variable",
-                    "variable": "dt",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "compare",
-                  "value": {
-                    "type": "number",
-                    "number": 150
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "set_variable_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "sym.%player%.cd",
-                        "scope": "game"
-                      }
-                    },
-                    {
-                      "name": "value",
-                      "value": {
-                        "type": "game_value",
-                        "game_value": "timestamp",
-                        "selection": "null"
-                      }
-                    }
-                  ],
-                  "operations": []
-                },
-                {
-                  "action": "call_function",
-                  "values": [
-                    {
-                      "name": "function_name",
-                      "value": {
-                        "type": "text",
-                        "text": "sym.pick",
-                        "parsing": "plain"
-                      }
-                    },
-                    {
-                      "name": "args",
-                      "value": {
-                        "type": "map",
-                        "values": {}
-                      }
-                    }
-                  ],
-                  "operations": []
-                }
-              ],
-              "is_inverted": false
-            }
-          ],
-          "is_inverted": false
+          ]
         }
       ]
     },
@@ -4001,590 +3488,6 @@
       ],
       "operations": [
         {
-          "action": "if_variable_exists",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.room",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "compare_type",
-              "value": {
-                "type": "enum",
-                "enum": "ANY"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_create_list",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "opts",
-                    "scope": "local"
-                  }
-                },
-                {
-                  "name": "values",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "text",
-                        "text": "&cВыйти в лобби",
-                        "parsing": "legacy"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "operations": []
-            },
-            {
-              "action": "set_variable_create_list",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "codes",
-                    "scope": "local"
-                  }
-                },
-                {
-                  "name": "values",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "text",
-                        "text": "l",
-                        "parsing": "plain"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "operations": []
-            }
-          ],
-          "is_inverted": false
-        },
-        {
-          "action": "else",
-          "values": [],
-          "operations": [
-            {
-              "action": "set_variable_create_list",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "opts",
-                    "scope": "local"
-                  }
-                },
-                {
-                  "name": "values",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "text",
-                        "text": "&aСоздать комнату",
-                        "parsing": "legacy"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "operations": []
-            },
-            {
-              "action": "set_variable_create_list",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "codes",
-                    "scope": "local"
-                  }
-                },
-                {
-                  "name": "values",
-                  "value": {
-                    "type": "array",
-                    "values": [
-                      {
-                        "type": "text",
-                        "text": "c",
-                        "parsing": "plain"
-                      }
-                    ]
-                  }
-                }
-              ],
-              "operations": []
-            },
-            {
-              "action": "repeat_for_each_map_entry",
-              "values": [
-                {
-                  "name": "key_variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "k",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "value_variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "v",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "map",
-                  "value": {
-                    "type": "variable",
-                    "variable": "sym.rooms",
-                    "scope": "game"
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "set_variable_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "c",
-                        "scope": "line"
-                      }
-                    },
-                    {
-                      "name": "value",
-                      "value": {
-                        "type": "variable",
-                        "variable": "sym.r%var_line(k).cnt",
-                        "scope": "game"
-                      }
-                    }
-                  ],
-                  "operations": []
-                },
-                {
-                  "action": "set_variable_append_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "opts",
-                        "scope": "local"
-                      }
-                    },
-                    {
-                      "name": "values",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "text",
-                            "text": "&fКомната #%var_line(k) &7— %var_line(v) &8(%var_line(c)/4)",
-                            "parsing": "legacy"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": []
-                },
-                {
-                  "action": "set_variable_append_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "codes",
-                        "scope": "local"
-                      }
-                    },
-                    {
-                      "name": "values",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "variable",
-                            "variable": "k",
-                            "scope": "line"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "set_variable_get_list_length",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "n",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "list",
-              "value": {
-                "type": "variable",
-                "variable": "opts",
-                "scope": "local"
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "if_variable_greater",
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.sel",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "variable",
-                "variable": "n",
-                "scope": "line"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "sym.%player%.sel",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "number",
-                    "number": 1
-                  }
-                }
-              ],
-              "operations": []
-            }
-          ],
-          "is_inverted": false
-        },
-        {
-          "action": "if_variable_less",
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.sel",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "compare",
-              "value": {
-                "type": "number",
-                "number": 1
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "set_variable_value",
-              "values": [
-                {
-                  "name": "variable",
-                  "value": {
-                    "type": "variable",
-                    "variable": "sym.%player%.sel",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "number",
-                    "number": 1
-                  }
-                }
-              ],
-              "operations": []
-            }
-          ],
-          "is_inverted": false
-        },
-        {
-          "action": "set_variable_create_list",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "lore",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "values",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "&7Выбери пункт:",
-                    "parsing": "legacy"
-                  },
-                  {
-                    "type": "text",
-                    "text": "",
-                    "parsing": "legacy"
-                  }
-                ]
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "repeat_for_each_in_list",
-          "values": [
-            {
-              "name": "index_variable",
-              "value": {
-                "type": "variable",
-                "variable": "i",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "value_variable",
-              "value": {
-                "type": "variable",
-                "variable": "v",
-                "scope": "line"
-              }
-            },
-            {
-              "name": "list",
-              "value": {
-                "type": "variable",
-                "variable": "opts",
-                "scope": "local"
-              }
-            }
-          ],
-          "operations": [
-            {
-              "action": "if_variable_equals",
-              "values": [
-                {
-                  "name": "value",
-                  "value": {
-                    "type": "variable",
-                    "variable": "i",
-                    "scope": "line"
-                  }
-                },
-                {
-                  "name": "compare",
-                  "value": {
-                    "type": "variable",
-                    "variable": "sym.%player%.sel",
-                    "scope": "game"
-                  }
-                },
-                {
-                  "name": "compare_type",
-                  "value": {
-                    "type": "enum",
-                    "enum": "ANY"
-                  }
-                }
-              ],
-              "operations": [
-                {
-                  "action": "set_variable_append_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "lore",
-                        "scope": "local"
-                      }
-                    },
-                    {
-                      "name": "values",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "text",
-                            "text": "&d▶ %var_line(v)",
-                            "parsing": "legacy"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": []
-                }
-              ],
-              "is_inverted": false
-            },
-            {
-              "action": "else",
-              "values": [],
-              "operations": [
-                {
-                  "action": "set_variable_append_value",
-                  "values": [
-                    {
-                      "name": "variable",
-                      "value": {
-                        "type": "variable",
-                        "variable": "lore",
-                        "scope": "local"
-                      }
-                    },
-                    {
-                      "name": "values",
-                      "value": {
-                        "type": "array",
-                        "values": [
-                          {
-                            "type": "text",
-                            "text": "&8   %var_line(v)",
-                            "parsing": "legacy"
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  "operations": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "action": "set_variable_append_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "lore",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "values",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "",
-                    "parsing": "legacy"
-                  },
-                  {
-                    "type": "text",
-                    "text": "&eПКМ &7— следующий пункт",
-                    "parsing": "legacy"
-                  },
-                  {
-                    "type": "text",
-                    "text": "&eЛКМ &7или &eF &7— выбрать",
-                    "parsing": "legacy"
-                  }
-                ]
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "set_variable_get_list_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "cur",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "list",
-              "value": {
-                "type": "variable",
-                "variable": "opts",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "number",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.sel",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "default_value",
-              "value": {
-                "type": "text",
-                "text": "",
-                "parsing": "legacy"
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
           "action": "set_variable_set_item_name",
           "values": [
             {
@@ -4606,38 +3509,8 @@
               "name": "text",
               "value": {
                 "type": "text",
-                "text": "&dКомнаты &8» &f%var_local(cur)",
+                "text": "&dКомнаты &8(ПКМ)",
                 "parsing": "legacy"
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "set_variable_set_item_lore",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "it",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "lore",
-              "value": {
-                "type": "variable",
-                "variable": "lore",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "item",
-              "value": {
-                "type": "variable",
-                "variable": "it",
-                "scope": "local"
               }
             }
           ],
@@ -4658,55 +3531,7 @@
               "name": "slot",
               "value": {
                 "type": "number",
-                "number": 1
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.codes",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "codes",
-                "scope": "local"
-              }
-            }
-          ],
-          "operations": []
-        },
-        {
-          "action": "player_send_action_bar",
-          "values": [
-            {
-              "name": "messages",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "&7Выбрано: &f%var_local(cur)",
-                    "parsing": "legacy"
-                  }
-                ]
-              }
-            },
-            {
-              "name": "merging",
-              "value": {
-                "type": "enum",
-                "enum": "SPACES"
+                "number": "1"
               }
             }
           ],
@@ -4736,59 +3561,27 @@
       ],
       "operations": [
         {
-          "action": "call_function",
-          "values": [
-            {
-              "name": "function_name",
-              "value": {
-                "type": "text",
-                "text": "sym.menu",
-                "parsing": "plain"
-              }
-            },
-            {
-              "name": "args",
-              "value": {
-                "type": "map",
-                "values": {}
-              }
-            }
-          ],
+          "action": "game_cancel_event",
+          "values": [],
           "operations": []
         },
         {
-          "action": "set_variable_get_list_value",
+          "action": "set_variable_value",
           "values": [
             {
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "code",
+                "variable": "cid",
                 "scope": "local"
               }
             },
             {
-              "name": "list",
+              "name": "value",
               "value": {
-                "type": "variable",
-                "variable": "sym.%player%.codes",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "number",
-              "value": {
-                "type": "variable",
-                "variable": "sym.%player%.sel",
-                "scope": "game"
-              }
-            },
-            {
-              "name": "default_value",
-              "value": {
-                "type": "text",
-                "text": "",
-                "parsing": "plain"
+                "type": "game_value",
+                "game_value": "open_inventory_custom_id",
+                "selection": "{\"type\":\"default\"}"
               }
             }
           ],
@@ -4801,7 +3594,7 @@
               "name": "value",
               "value": {
                 "type": "variable",
-                "variable": "code",
+                "variable": "cid",
                 "scope": "local"
               }
             },
@@ -4809,7 +3602,7 @@
               "name": "compare",
               "value": {
                 "type": "text",
-                "text": "c",
+                "text": "sym_main",
                 "parsing": "plain"
               }
             },
@@ -4823,28 +3616,114 @@
           ],
           "operations": [
             {
-              "action": "call_function",
+              "action": "if_player_inventory_menu_slot_equals",
               "values": [
                 {
-                  "name": "function_name",
+                  "name": "items",
                   "value": {
-                    "type": "text",
-                    "text": "sym.create",
-                    "parsing": "plain"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:lime_dye\"}"
+                      }
+                    ]
                   }
                 },
                 {
-                  "name": "args",
+                  "name": "slots",
                   "value": {
-                    "type": "map",
-                    "values": {}
+                    "type": "number",
+                    "number": "11"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
                   }
                 }
               ],
-              "operations": []
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.settings",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "if_player_inventory_menu_slot_equals",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:light_blue_dye\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "slots",
+                  "value": {
+                    "type": "number",
+                    "number": "15"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.rooms_menu",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
             }
-          ],
-          "is_inverted": false
+          ]
         },
         {
           "action": "if_variable_equals",
@@ -4853,7 +3732,7 @@
               "name": "value",
               "value": {
                 "type": "variable",
-                "variable": "code",
+                "variable": "cid",
                 "scope": "local"
               }
             },
@@ -4861,7 +3740,7 @@
               "name": "compare",
               "value": {
                 "type": "text",
-                "text": "l",
+                "text": "sym_settings",
                 "parsing": "plain"
               }
             },
@@ -4875,63 +3754,900 @@
           ],
           "operations": [
             {
-              "action": "call_function",
+              "action": "if_player_inventory_menu_slot_equals",
               "values": [
                 {
-                  "name": "function_name",
+                  "name": "items",
                   "value": {
-                    "type": "text",
-                    "text": "sym.leave",
-                    "parsing": "plain"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:nether_star\"}"
+                      }
+                    ]
                   }
                 },
                 {
-                  "name": "args",
+                  "name": "slots",
                   "value": {
-                    "type": "map",
-                    "values": {}
+                    "type": "number",
+                    "number": "13"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
                   }
                 }
               ],
-              "operations": []
+              "operations": [
+                {
+                  "action": "set_variable_get_map_value_single",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "p",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "map",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.cfg.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "key",
+                      "value": {
+                        "type": "text",
+                        "text": "players",
+                        "parsing": "plain"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_increment",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "p",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": "1"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "if_variable_greater",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "p",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "4"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "p",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "1"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_map_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.cfg.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "map",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.cfg.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "key",
+                      "value": {
+                        "type": "text",
+                        "text": "players",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "p",
+                        "scope": "local"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.settings",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "if_player_inventory_menu_slot_equals",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:map\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "slots",
+                  "value": {
+                    "type": "number",
+                    "number": "11"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_map_value_single",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "s",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "map",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.cfg.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "key",
+                      "value": {
+                        "type": "text",
+                        "text": "size",
+                        "parsing": "plain"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "s",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "20"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "size",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "45"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "s",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "45"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "size",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "60"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "s",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": "60"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "size",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "number",
+                            "number": "20"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.settings",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "if_player_inventory_menu_slot_equals",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:wither_skeleton_skull\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "slots",
+                  "value": {
+                    "type": "number",
+                    "number": "9"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "set_variable_get_map_value_single",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "d",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "map",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.cfg.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "key",
+                      "value": {
+                        "type": "text",
+                        "text": "diff",
+                        "parsing": "plain"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "d",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "text",
+                        "text": "Легкая",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "diff",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "Нормальная",
+                            "parsing": "plain"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "d",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "text",
+                        "text": "Нормальная",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "diff",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "Сложная",
+                            "parsing": "plain"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_equals",
+                  "values": [
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "d",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "text",
+                        "text": "Сложная",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "set_variable_set_map_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "map",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sym.cfg.%player%",
+                            "scope": "game"
+                          }
+                        },
+                        {
+                          "name": "key",
+                          "value": {
+                            "type": "text",
+                            "text": "diff",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "text",
+                            "text": "Легкая",
+                            "parsing": "plain"
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.settings",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "if_player_inventory_menu_slot_equals",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:lime_wool\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "slots",
+                  "value": {
+                    "type": "number",
+                    "number": "26"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "player_close_inventory",
+                  "values": [],
+                  "operations": []
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.create",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
+            },
+            {
+              "action": "if_player_inventory_menu_slot_equals",
+              "values": [
+                {
+                  "name": "items",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "item",
+                        "item": "{Count:1b,id:\"minecraft:arrow\"}"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "slots",
+                  "value": {
+                    "type": "number",
+                    "number": "18"
+                  }
+                },
+                {
+                  "name": "comparison_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TYPE_ONLY"
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "sym.main_menu",
+                        "parsing": "plain"
+                      }
+                    },
+                    {
+                      "name": "args",
+                      "value": {
+                        "type": "map",
+                        "values": {}
+                      }
+                    }
+                  ],
+                  "operations": []
+                }
+              ]
             }
-          ],
-          "is_inverted": false
+          ]
         },
         {
-          "action": "if_variable_not_equals",
+          "action": "if_variable_equals",
           "values": [
             {
               "name": "value",
               "value": {
                 "type": "variable",
-                "variable": "code",
+                "variable": "cid",
                 "scope": "local"
               }
             },
             {
               "name": "compare",
               "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "text",
-                    "text": "c",
-                    "parsing": "plain"
-                  },
-                  {
-                    "type": "text",
-                    "text": "l",
-                    "parsing": "plain"
-                  }
-                ]
+                "type": "text",
+                "text": "sym_rooms",
+                "parsing": "plain"
               }
             },
             {
               "name": "compare_type",
               "value": {
                 "type": "enum",
-                "enum": "ALL"
+                "enum": "ANY"
               }
             }
           ],
@@ -4943,44 +4659,158 @@
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "rid",
+                    "variable": "snum",
                     "scope": "local"
                   }
                 },
                 {
                   "name": "value",
                   "value": {
-                    "type": "variable",
-                    "variable": "code",
-                    "scope": "local"
+                    "type": "game_value",
+                    "game_value": "event_slot",
+                    "selection": "null"
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "call_function",
+              "action": "if_variable_in_range",
               "values": [
                 {
-                  "name": "function_name",
+                  "name": "value",
                   "value": {
-                    "type": "text",
-                    "text": "sym.join",
-                    "parsing": "plain"
+                    "type": "variable",
+                    "variable": "snum",
+                    "scope": "local"
                   }
                 },
                 {
-                  "name": "args",
+                  "name": "min",
                   "value": {
-                    "type": "map",
-                    "values": {}
+                    "type": "number",
+                    "number": "9"
+                  }
+                },
+                {
+                  "name": "max",
+                  "value": {
+                    "type": "number",
+                    "number": "26"
                   }
                 }
               ],
-              "operations": []
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "rid",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(snum) - 8)"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_get_list_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "rid",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "list",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sym.keys.%player%",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "variable",
+                        "variable": "rid",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "default_value",
+                      "value": {
+                        "type": "text",
+                        "text": "",
+                        "parsing": "plain"
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "if_variable_exists",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "rid",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "compare_type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "ANY"
+                      }
+                    }
+                  ],
+                  "operations": [
+                    {
+                      "action": "player_close_inventory",
+                      "values": [],
+                      "operations": []
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "sym.join",
+                            "parsing": "plain"
+                          }
+                        },
+                        {
+                          "name": "args",
+                          "value": {
+                            "type": "map",
+                            "values": {}
+                          }
+                        }
+                      ],
+                      "operations": []
+                    }
+                  ]
+                }
+              ]
             }
-          ],
-          "is_inverted": false
+          ]
         }
       ]
     },
@@ -5334,8 +5164,8 @@
               "value": {
                 "type": "sound",
                 "sound": "minecraft:block.amethyst_block.chime",
-                "pitch": 1.0,
-                "volume": 1.0
+                "pitch": 1,
+                "volume": 1
               }
             },
             {
@@ -9582,8 +9412,8 @@
               "value": {
                 "type": "sound",
                 "sound": "minecraft:block.beacon.activate",
-                "pitch": 1.0,
-                "volume": 1.0
+                "pitch": 1,
+                "volume": 1
               }
             },
             {
@@ -10709,8 +10539,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.player.burp",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -10813,8 +10643,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -10917,8 +10747,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11021,8 +10851,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.decorated_pot.place",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11125,8 +10955,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11229,8 +11059,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:item.goat_horn.sound.0",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11333,8 +11163,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11437,8 +11267,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.slime.jump",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11541,8 +11371,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:item.book.page_turn",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11661,8 +11491,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.piston.extend",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11804,8 +11634,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.anvil.land",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -11924,8 +11754,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.lever.click",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12044,8 +11874,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.phantom.flap",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12144,8 +11974,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.guardian.attack",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12228,8 +12058,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.amethyst_block.chime",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12332,8 +12162,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12436,8 +12266,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.wood.place",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12515,8 +12345,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.stone_button.click_off",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12594,8 +12424,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.witch.celebrate",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12698,8 +12528,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:entity.item.pickup",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -12777,8 +12607,8 @@
                   "value": {
                     "type": "sound",
                     "sound": "minecraft:block.wooden_button.click_on",
-                    "pitch": 1.0,
-                    "volume": 1.0
+                    "pitch": 1,
+                    "volume": 1
                   }
                 },
                 {
@@ -13061,8 +12891,8 @@
               "value": {
                 "type": "sound",
                 "sound": "minecraft:block.iron_door.open",
-                "pitch": 1.0,
-                "volume": 1.0
+                "pitch": 1,
+                "volume": 1
               }
             },
             {
@@ -13315,8 +13145,8 @@
               "value": {
                 "type": "sound",
                 "sound": "minecraft:block.iron_door.close",
-                "pitch": 1.0,
-                "volume": 1.0
+                "pitch": 1,
+                "volume": 1
               }
             },
             {
@@ -13510,8 +13340,8 @@
               "value": {
                 "type": "sound",
                 "sound": "minecraft:ui.toast.challenge_complete",
-                "pitch": 1.0,
-                "volume": 1.0
+                "pitch": 1,
+                "volume": 1
               }
             },
             {
@@ -13963,6 +13793,1305 @@
           "action": "select_reset",
           "values": [],
           "operations": []
+        }
+      ]
+    },
+    {
+      "type": "event",
+      "event": "player_click_inventory",
+      "position": 21,
+      "operations": [
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "sym.pick",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "args",
+              "value": {
+                "type": "map",
+                "values": {}
+              }
+            }
+          ],
+          "operations": []
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "sym.main_menu",
+      "position": 23,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "FALSE"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "player_show_inventory_menu",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "&dСимвол &8» Комнаты",
+                "parsing": "legacy"
+              }
+            },
+            {
+              "name": "custom_id",
+              "value": {
+                "type": "text",
+                "text": "sym_main",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "inventory_type",
+              "value": {
+                "type": "enum",
+                "enum": "CHEST"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:lime_dye\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&aСоздать комнату",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "11"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itj",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:light_blue_dye\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&9Присоединиться к комнате",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itj",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "15"
+              }
+            }
+          ],
+          "operations": []
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "sym.settings",
+      "position": 24,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "FALSE"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "if_variable_exists",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sym.cfg.%player%",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "compare_type",
+              "value": {
+                "type": "enum",
+                "enum": "ANY"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_create_map",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sym.cfg.%player%",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "keys",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "players",
+                        "parsing": "plain"
+                      },
+                      {
+                        "type": "text",
+                        "text": "size",
+                        "parsing": "plain"
+                      },
+                      {
+                        "type": "text",
+                        "text": "diff",
+                        "parsing": "plain"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "values",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": "2"
+                      },
+                      {
+                        "type": "number",
+                        "number": "45"
+                      },
+                      {
+                        "type": "text",
+                        "text": "Нормальная",
+                        "parsing": "plain"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "player_show_inventory_menu",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "&dСоздание комнаты",
+                "parsing": "legacy"
+              }
+            },
+            {
+              "name": "custom_id",
+              "value": {
+                "type": "text",
+                "text": "sym_settings",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "inventory_type",
+              "value": {
+                "type": "enum",
+                "enum": "CHEST"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_get_map_value_single",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "map",
+              "value": {
+                "type": "variable",
+                "variable": "sym.cfg.%player%",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "key",
+              "value": {
+                "type": "text",
+                "text": "players",
+                "parsing": "plain"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itp",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:nether_star\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&aКоличество игроков &8» &f%var_local(p) &8(1-4)",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itp",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "13"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_get_map_value_single",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "s",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "map",
+              "value": {
+                "type": "variable",
+                "variable": "sym.cfg.%player%",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "key",
+              "value": {
+                "type": "text",
+                "text": "size",
+                "parsing": "plain"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "its",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:map\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&bРазмер карты &8» &f%var_local(s) &7блоков &8(20-45-60)",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "its",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "11"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_get_map_value_single",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "d",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "map",
+              "value": {
+                "type": "variable",
+                "variable": "sym.cfg.%player%",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "key",
+              "value": {
+                "type": "text",
+                "text": "diff",
+                "parsing": "plain"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itd",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:wither_skeleton_skull\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&cСложность &8» &f%var_local(d) &8(Легкая-Нормальная-Сложная)",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itd",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "9"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itf",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:lime_wool\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&a&l✔ Создать комнату",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itf",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "26"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_set_item_name",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "itb",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "item",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:arrow\"}"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "type": "text",
+                "text": "&7← Назад",
+                "parsing": "legacy"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "player_set_inventory_menu_item",
+          "values": [
+            {
+              "name": "item",
+              "value": {
+                "type": "variable",
+                "variable": "itb",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "slot",
+              "value": {
+                "type": "number",
+                "number": "18"
+              }
+            }
+          ],
+          "operations": []
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "sym.rooms_menu",
+      "position": 25,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "FALSE"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "player_show_inventory_menu",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  },
+                  {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:gray_stained_glass_pane\"}"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "type": "text",
+                "text": "&dКомнаты",
+                "parsing": "legacy"
+              }
+            },
+            {
+              "name": "custom_id",
+              "value": {
+                "type": "text",
+                "text": "sym_rooms",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "inventory_type",
+              "value": {
+                "type": "enum",
+                "enum": "CHEST"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_create_list",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "keys",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "values",
+              "value": {
+                "type": "array",
+                "values": []
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "repeat_for_each_map_entry",
+          "values": [
+            {
+              "name": "key_variable",
+              "value": {
+                "type": "variable",
+                "variable": "k",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "value_variable",
+              "value": {
+                "type": "variable",
+                "variable": "v",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "map",
+              "value": {
+                "type": "variable",
+                "variable": "sym.rooms",
+                "scope": "game"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "n",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": "1"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_set_item_name",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "itr",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "item",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:paper\"}"
+                  }
+                },
+                {
+                  "name": "text",
+                  "value": {
+                    "type": "text",
+                    "text": "&fКомната #%var_line(k) &8| &7хост: &d%var_line(v)",
+                    "parsing": "legacy"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_set_inventory_menu_item",
+              "values": [
+                {
+                  "name": "item",
+                  "value": {
+                    "type": "variable",
+                    "variable": "itr",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "slot",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(8 + %var_local(n))"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_append_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "keys",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "values",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "k",
+                        "scope": "line"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sym.keys.%player%",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "keys",
+                "scope": "local"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_get_list_length",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "len",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "list",
+              "value": {
+                "type": "variable",
+                "variable": "keys",
+                "scope": "local"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "if_variable_less",
+          "values": [
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "len",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": "1"
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "player_send_message",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&cКомнат пока нет — создай свою!",
+                        "parsing": "legacy"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SEPARATE_LINES"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "player_close_inventory",
+              "values": [],
+              "operations": []
+            }
+          ]
         }
       ]
     }
