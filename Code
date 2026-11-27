@@ -204,6 +204,27 @@
               "name": "function_name",
               "value": {
                 "type": "text",
+                "text": "run.build_structures",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "args",
+              "value": {
+                "type": "map",
+                "values": {}
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
                 "text": "run.build_decor",
                 "parsing": "plain"
               }
@@ -302,21 +323,20 @@
           "operations": []
         },
         {
-          "action": "call_function",
+          "action": "player_set_attribute",
           "values": [
             {
-              "name": "function_name",
+              "name": "value",
               "value": {
-                "type": "text",
-                "text": "run.apply_speed",
-                "parsing": "plain"
+                "type": "number",
+                "number": "%math(0.1 + %var_save(run.%player%.spd) * 0.01)"
               }
             },
             {
-              "name": "args",
+              "name": "attribute_type",
               "value": {
-                "type": "map",
-                "values": {}
+                "type": "enum",
+                "enum": "GENERIC_MOVEMENT_SPEED"
               }
             }
           ],
@@ -755,21 +775,20 @@
               "is_inverted": false
             },
             {
-              "action": "call_function",
+              "action": "player_set_attribute",
               "values": [
                 {
-                  "name": "function_name",
+                  "name": "value",
                   "value": {
-                    "type": "text",
-                    "text": "run.apply_speed",
-                    "parsing": "plain"
+                    "type": "number",
+                    "number": "%math(0.1 + %var_save(run.%player%.spd) * 0.01)"
                   }
                 },
                 {
-                  "name": "args",
+                  "name": "attribute_type",
                   "value": {
-                    "type": "map",
-                    "values": {}
+                    "type": "enum",
+                    "enum": "GENERIC_MOVEMENT_SPEED"
                   }
                 }
               ],
@@ -1078,21 +1097,20 @@
                       "operations": []
                     },
                     {
-                      "action": "call_function",
+                      "action": "player_set_attribute",
                       "values": [
                         {
-                          "name": "function_name",
+                          "name": "value",
                           "value": {
-                            "type": "text",
-                            "text": "run.apply_speed",
-                            "parsing": "plain"
+                            "type": "number",
+                            "number": "%math(0.1 + %var_save(run.%player%.spd) * 0.01)"
                           }
                         },
                         {
-                          "name": "args",
+                          "name": "attribute_type",
                           "value": {
-                            "type": "map",
-                            "values": {}
+                            "type": "enum",
+                            "enum": "GENERIC_MOVEMENT_SPEED"
                           }
                         }
                       ],
@@ -1615,21 +1633,20 @@
                   "operations": []
                 },
                 {
-                  "action": "call_function",
+                  "action": "player_set_attribute",
                   "values": [
                     {
-                      "name": "function_name",
+                      "name": "value",
                       "value": {
-                        "type": "text",
-                        "text": "run.apply_speed",
-                        "parsing": "plain"
+                        "type": "number",
+                        "number": "%math(0.1 + %var_save(run.%player%.spd) * 0.01)"
                       }
                     },
                     {
-                      "name": "args",
+                      "name": "attribute_type",
                       "value": {
-                        "type": "map",
-                        "values": {}
+                        "type": "enum",
+                        "enum": "GENERIC_MOVEMENT_SPEED"
                       }
                     }
                   ],
@@ -1963,7 +1980,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -15
               }
             },
             {
@@ -1977,7 +1994,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -13
               }
             },
             {
@@ -2020,21 +2037,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": 206
+                "number": 208
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 14
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 13
               }
             },
             {
@@ -2106,7 +2123,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -15
               }
             },
             {
@@ -2120,7 +2137,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -13
               }
             },
             {
@@ -2163,7 +2180,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": 206
+                "number": 208
               }
             },
             {
@@ -2177,7 +2194,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 13
               }
             },
             {
@@ -2204,7 +2221,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:smooth_stone\"}"
+                "item": "{Count:1b,id:\"minecraft:dirt\"}"
               }
             },
             {
@@ -2249,7 +2266,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -15
               }
             },
             {
@@ -2263,7 +2280,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -13
               }
             },
             {
@@ -2306,7 +2323,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": 206
+                "number": 208
               }
             },
             {
@@ -2320,7 +2337,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 13
               }
             },
             {
@@ -2549,6 +2566,292 @@
               "name": "z",
               "value": {
                 "type": "number",
+                "number": -3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 204
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 204
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
                 "number": -1
               }
             },
@@ -2821,7 +3124,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": 0
               }
             },
             {
@@ -2835,7 +3138,293 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 201
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:black_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -13
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -11
               }
             },
             {
@@ -2892,7 +3481,150 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 9
+                "number": 11
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_deepslate\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -10
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 10
               }
             },
             {
@@ -2920,6 +3652,149 @@
               "value": {
                 "type": "item",
                 "item": "{Count:1b,id:\"minecraft:polished_andesite\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -6
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:smooth_quartz\"}"
               }
             },
             {
@@ -3107,7 +3982,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": -11
               }
             },
             {
@@ -3121,7 +3996,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -3
+                "number": -8
               }
             },
             {
@@ -3164,7 +4039,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": -9
               }
             },
             {
@@ -3178,7 +4053,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 3
+                "number": 8
               }
             },
             {
@@ -3205,7 +4080,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+                "item": "{Count:1b,id:\"minecraft:cyan_terracotta\"}"
               }
             },
             {
@@ -3337,6 +4212,149 @@
               "name": "y",
               "value": {
                 "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 205
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
                 "number": 3
               }
             },
@@ -3371,7 +4389,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -3480,6 +4498,149 @@
               "name": "y",
               "value": {
                 "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 205
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
                 "number": 3
               }
             },
@@ -3514,7 +4675,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -3623,6 +4784,149 @@
               "name": "y",
               "value": {
                 "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 205
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 205
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
                 "number": 3
               }
             },
@@ -3657,7 +4961,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -3702,7 +5006,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -14
               }
             },
             {
@@ -3716,7 +5020,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -12
               }
             },
             {
@@ -3759,21 +5063,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 3
+                "number": 1
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -12
               }
             },
             {
@@ -3800,7 +5104,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
               }
             },
             {
@@ -3845,21 +5149,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -14
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 1
+                "number": 2
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": -12
               }
             },
             {
@@ -3902,7 +5206,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
@@ -3916,7 +5220,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": -12
               }
             },
             {
@@ -3943,7 +5247,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -3988,7 +5292,7 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -14
               }
             },
             {
@@ -4002,7 +5306,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": 12
               }
             },
             {
@@ -4045,21 +5349,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 3
+                "number": 1
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 12
               }
             },
             {
@@ -4086,7 +5390,436 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -4145,7 +5878,150 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -10
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
               }
             },
             {
@@ -4229,7 +6105,7 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
               }
             },
             {
@@ -4338,6 +6214,149 @@
               "name": "y",
               "value": {
                 "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:polished_blackstone_bricks\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
                 "number": 3
               }
             },
@@ -4345,7 +6364,7 @@
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 10
+                "number": 12
               }
             },
             {
@@ -4372,7 +6391,173 @@
               "name": "block",
               "value": {
                 "type": "item",
-                "item": "{Count:1b,id:\"minecraft:glass\"}"
+                "item": "{Count:1b,id:\"minecraft:light_blue_stained_glass\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "name": "run.build_structures",
+      "position": 5,
+      "values": [
+        {
+          "name": "parameters",
+          "value": {
+            "type": "array",
+            "values": []
+          }
+        },
+        {
+          "name": "is_hidden",
+          "value": {
+            "type": "enum",
+            "enum": "FALSE"
+          }
+        }
+      ],
+      "operations": [
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 5
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
               }
             },
             {
@@ -4417,21 +6602,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -14
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 6
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -12
               }
             },
             {
@@ -4474,21 +6659,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -14
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 6
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -12
               }
             },
             {
@@ -4560,21 +6745,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -14
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 1
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 9
+                "number": 12
               }
             },
             {
@@ -4617,21 +6802,164 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -14
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 5
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 9
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": -14
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
               }
             },
             {
@@ -4703,21 +7031,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 1
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -12
               }
             },
             {
@@ -4760,21 +7088,164 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 5
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": -9
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -12
               }
             },
             {
@@ -4846,21 +7317,21 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 1
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 9
+                "number": 12
               }
             },
             {
@@ -4903,21 +7374,164 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -1
+                "number": 0
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 0
+                "number": 5
               }
             },
             {
               "name": "z",
               "value": {
                 "type": "number",
-                "number": 9
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 12
               }
             },
             {
@@ -4945,6 +7559,1436 @@
               "value": {
                 "type": "item",
                 "item": "{Count:1b,id:\"minecraft:sea_lantern\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 7
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 7
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:red_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:quartz_pillar\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 7
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": -4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 7
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:gold_block\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 5
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 197
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 8
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:smooth_stone\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 6
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 197
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 8
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:light_blue_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 7
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 197
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 8
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+              }
+            },
+            {
+              "name": "pos_1",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "pos_2",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p1",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 8
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "p2",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 197
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 8
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_set_region",
+          "values": [
+            {
+              "name": "block",
+              "value": {
+                "type": "item",
+                "item": "{Count:1b,id:\"minecraft:blue_concrete\"}"
               }
             },
             {
@@ -4971,7 +9015,7 @@
     {
       "type": "function",
       "name": "run.build_decor",
-      "position": 5,
+      "position": 6,
       "values": [
         {
           "name": "parameters",
@@ -4996,7 +9040,7 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "i",
+                "variable": "j",
                 "scope": "line"
               }
             },
@@ -5004,7 +9048,339 @@
               "name": "start",
               "value": {
                 "type": "number",
-                "number": 25
+                "number": 0
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": 204
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -3
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j) + 1)"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -3
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c3",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 3
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c4",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j) + 1)"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 3
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:red_concrete\"}"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "c1",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "c2",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "c3",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "c4",
+                        "scope": "line"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "update_blocks",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "j",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 0
               }
             },
             {
@@ -5018,7 +9394,7 @@
               "name": "interval",
               "value": {
                 "type": "number",
-                "number": 25
+                "number": 10
               }
             }
           ],
@@ -5046,21 +9422,21 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": "%math(%var_line(i))"
+                    "number": "%math(%var_line(j))"
                   }
                 },
                 {
                   "name": "y",
                   "value": {
                     "type": "number",
-                    "number": 0
+                    "number": 1
                   }
                 },
                 {
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": -3
+                    "number": -6
                   }
                 },
                 {
@@ -5103,7 +9479,435 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": "%math(%var_line(i))"
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 3
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "game_set_region",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:dark_oak_fence\"}"
+                  }
+                },
+                {
+                  "name": "pos_1",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "pos_2",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p2",
+                    "scope": "line"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 4
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -6
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(min(%var_line(j) + 5, 195))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 5
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 8
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:lantern\"}"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "c1",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "c2",
+                        "scope": "line"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "update_blocks",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "j",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 10
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": 200
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 20
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -9
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "game_generate_tree",
+              "values": [
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "tree_type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "BIRCH"
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "j",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": 200
                   }
                 },
                 {
@@ -5117,7 +9921,252 @@
                   "name": "z",
                   "value": {
                     "type": "number",
-                    "number": 3
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "c2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": 201
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j) + 1)"
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "item",
+                    "item": "{Count:1b,id:\"minecraft:white_concrete\"}"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "c1",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "c2",
+                        "scope": "line"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "update_blocks",
+                  "value": {
+                    "type": "enum",
+                    "enum": "FALSE"
+                  }
+                }
+              ],
+              "operations": []
+            }
+          ]
+        },
+        {
+          "action": "repeat_on_range",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "j",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "start",
+              "value": {
+                "type": "number",
+                "number": 25
+              }
+            },
+            {
+              "name": "end",
+              "value": {
+                "type": "number",
+                "number": 175
+              }
+            },
+            {
+              "name": "interval",
+              "value": {
+                "type": "number",
+                "number": 25
+              }
+            }
+          ],
+          "operations": [
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p1",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": -2
+                  }
+                },
+                {
+                  "name": "yaw",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "pitch",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_shift_all_coordinates",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "p2",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "run.base",
+                    "scope": "game"
+                  }
+                },
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_line(j))"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "number",
+                    "number": 0
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "number",
+                    "number": 2
                   }
                 },
                 {
@@ -5189,7 +10238,7 @@
                   "name": "x",
                   "value": {
                     "type": "number",
-                    "number": "%math(%var_line(i) + 0.5)"
+                    "number": "%math(%var_line(j) + 0.5)"
                   }
                 },
                 {
@@ -5256,12 +10305,12 @@
                     "values": [
                       {
                         "type": "text",
-                        "text": "&e&l%var_line(i) м",
+                        "text": "&e&l%var_line(j) м",
                         "parsing": "legacy"
                       },
                       {
                         "type": "text",
-                        "text": "&7бонус x%math(1 + %var_line(i) / 100)",
+                        "text": "&7бонус x%math(1 + %var_line(j) / 100)",
                         "parsing": "legacy"
                       }
                     ]
@@ -5313,14 +10362,14 @@
               "name": "x",
               "value": {
                 "type": "number",
-                "number": -4.5
+                "number": -10.5
               }
             },
             {
               "name": "y",
               "value": {
                 "type": "number",
-                "number": 3
+                "number": 3.5
               }
             },
             {
@@ -5423,6 +10472,245 @@
           "operations": []
         },
         {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 0.5
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 8.5
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 0.5
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_spawn_text_display",
+          "values": [
+            {
+              "name": "spawn_location",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "custom_name",
+              "value": {
+                "type": "text",
+                "text": "run_start",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "merging_mode",
+              "value": {
+                "type": "enum",
+                "enum": "SEPARATE_LINES"
+              }
+            },
+            {
+              "name": "displayed_text",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&a&lСТАРТ",
+                    "parsing": "legacy"
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "select_last_entity",
+          "values": [],
+          "operations": []
+        },
+        {
+          "action": "entity_set_display_billboard",
+          "values": [
+            {
+              "name": "billboard_type",
+              "value": {
+                "type": "enum",
+                "enum": "CENTER"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_shift_all_coordinates",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "run.base",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "x",
+              "value": {
+                "type": "number",
+                "number": 200.5
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "number",
+                "number": 8.5
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "number",
+                "number": 0.5
+              }
+            },
+            {
+              "name": "yaw",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            },
+            {
+              "name": "pitch",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "game_spawn_text_display",
+          "values": [
+            {
+              "name": "spawn_location",
+              "value": {
+                "type": "variable",
+                "variable": "mk",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "custom_name",
+              "value": {
+                "type": "text",
+                "text": "run_finish",
+                "parsing": "plain"
+              }
+            },
+            {
+              "name": "merging_mode",
+              "value": {
+                "type": "enum",
+                "enum": "SEPARATE_LINES"
+              }
+            },
+            {
+              "name": "displayed_text",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&6&l★ ФИНИШ ★",
+                    "parsing": "legacy"
+                  },
+                  {
+                    "type": "text",
+                    "text": "&7бонус x3",
+                    "parsing": "legacy"
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "select_last_entity",
+          "values": [],
+          "operations": []
+        },
+        {
+          "action": "entity_set_display_billboard",
+          "values": [
+            {
+              "name": "billboard_type",
+              "value": {
+                "type": "enum",
+                "enum": "CENTER"
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
           "action": "select_reset",
           "values": [],
           "operations": []
@@ -5432,7 +10720,7 @@
     {
       "type": "function",
       "name": "run.build_npcs",
-      "position": 6,
+      "position": 7,
       "values": [
         {
           "name": "parameters",
@@ -6321,49 +11609,6 @@
         {
           "action": "select_reset",
           "values": [],
-          "operations": []
-        }
-      ]
-    },
-    {
-      "type": "function",
-      "name": "run.apply_speed",
-      "position": 7,
-      "values": [
-        {
-          "name": "parameters",
-          "value": {
-            "type": "array",
-            "values": []
-          }
-        },
-        {
-          "name": "is_hidden",
-          "value": {
-            "type": "enum",
-            "enum": "FALSE"
-          }
-        }
-      ],
-      "operations": [
-        {
-          "action": "player_set_attribute",
-          "values": [
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(0.1 + %var_save(run.%player%.spd) * 0.01)"
-              }
-            },
-            {
-              "name": "attribute_type",
-              "value": {
-                "type": "enum",
-                "enum": "GENERIC_MOVEMENT_SPEED"
-              }
-            }
-          ],
           "operations": []
         }
       ]
