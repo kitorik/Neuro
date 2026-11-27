@@ -461,13 +461,112 @@
           "operations": []
         },
         {
+          "action": "set_variable_multiply",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "run.%player%.spd",
+                    "scope": "save"
+                  },
+                  {
+                    "type": "number",
+                    "number": 0.02
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_add",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
+                  },
+                  {
+                    "type": "number",
+                    "number": 0.2
+                  },
+                  {
+                    "type": "variable",
+                    "variable": "run.%player%.bspd",
+                    "scope": "game"
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
+          "action": "set_variable_min",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "sp",
+                "scope": "line"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
+                  },
+                  {
+                    "type": "number",
+                    "number": 1
+                  }
+                ]
+              }
+            }
+          ],
+          "operations": []
+        },
+        {
           "action": "player_set_movement_speed",
           "values": [
             {
               "name": "distance",
               "value": {
-                "type": "number",
-                "number": "%math(min(0.2 + %var_save(run.%player%.spd) * 0.02 + %var(run.%player%.bspd), 1))"
+                "type": "variable",
+                "variable": "sp",
+                "scope": "line"
               }
             },
             {
@@ -774,6 +873,131 @@
               "is_inverted": false
             },
             {
+              "action": "set_variable_multiply",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "m",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.mul",
+                        "scope": "save"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.5
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_add",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "m",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "m",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_add",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rb",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.reb",
+                        "scope": "save"
+                      },
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_multiply",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "m",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "m",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "rb",
+                        "scope": "line"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
               "action": "if_variable_greater",
               "values": [
                 {
@@ -873,7 +1097,80 @@
                   "operations": []
                 },
                 {
-                  "action": "set_variable_value",
+                  "action": "set_variable_max",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "bm",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.bmul",
+                            "scope": "game"
+                          },
+                          {
+                            "type": "number",
+                            "number": 1
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_multiply",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "g",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "d",
+                            "scope": "line"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "zone",
+                            "scope": "line"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "m",
+                            "scope": "line"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "bm",
+                            "scope": "line"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_add",
                   "values": [
                     {
                       "name": "variable",
@@ -886,15 +1183,26 @@
                     {
                       "name": "value",
                       "value": {
-                        "type": "number",
-                        "number": "%math(%var_save(run.%player%.coins) + %var_line(d) * %var_line(zone) * (1 + %var_save(run.%player%.mul) * 0.5) * (1 + %var_save(run.%player%.reb)) * max(1, %var(run.%player%.bmul)))"
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.coins",
+                            "scope": "save"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "g",
+                            "scope": "line"
+                          }
+                        ]
                       }
                     }
                   ],
                   "operations": []
                 },
                 {
-                  "action": "set_variable_value",
+                  "action": "set_variable_add",
                   "values": [
                     {
                       "name": "variable",
@@ -907,8 +1215,19 @@
                     {
                       "name": "value",
                       "value": {
-                        "type": "number",
-                        "number": "%math(%var_save(run.%player%.dist) + %var_line(d))"
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.dist",
+                            "scope": "save"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "d",
+                            "scope": "line"
+                          }
+                        ]
                       }
                     }
                   ],
@@ -1100,13 +1419,112 @@
               "operations": []
             },
             {
+              "action": "set_variable_multiply",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.spd",
+                        "scope": "save"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.02
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_add",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.2
+                      },
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bspd",
+                        "scope": "game"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
+              "action": "set_variable_min",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
+                      },
+                      {
+                        "type": "number",
+                        "number": 1
+                      }
+                    ]
+                  }
+                }
+              ],
+              "operations": []
+            },
+            {
               "action": "player_set_movement_speed",
               "values": [
                 {
                   "name": "distance",
                   "value": {
-                    "type": "number",
-                    "number": "%math(min(0.2 + %var_save(run.%player%.spd) * 0.02 + %var(run.%player%.bspd), 1))"
+                    "type": "variable",
+                    "variable": "sp",
+                    "scope": "line"
                   }
                 },
                 {
@@ -1199,7 +1617,7 @@
                           },
                           {
                             "type": "text",
-                            "text": "&7| &dx%math(round((1 + %var_save(run.%player%.mul) * 0.5) * (1 + %var_save(run.%player%.reb)), 2))",
+                            "text": "&7| &dx%math(round(%var_line(m), 2))",
                             "parsing": "legacy"
                           },
                           {
@@ -1252,7 +1670,7 @@
                           },
                           {
                             "type": "text",
-                            "text": "&7| &dx%math(round((1 + %var_save(run.%player%.mul) * 0.5) * (1 + %var_save(run.%player%.reb)), 2))",
+                            "text": "&7| &dx%math(round(%var_line(m), 2))",
                             "parsing": "legacy"
                           },
                           {
@@ -1455,7 +1873,7 @@
                   ],
                   "operations": [
                     {
-                      "action": "set_variable_value",
+                      "action": "set_variable_subtract",
                       "values": [
                         {
                           "name": "variable",
@@ -1468,15 +1886,26 @@
                         {
                           "name": "value",
                           "value": {
-                            "type": "number",
-                            "number": "%math(%var_save(run.%player%.coins) - %var_line(cost))"
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "variable",
+                                "variable": "run.%player%.coins",
+                                "scope": "save"
+                              },
+                              {
+                                "type": "variable",
+                                "variable": "cost",
+                                "scope": "line"
+                              }
+                            ]
                           }
                         }
                       ],
                       "operations": []
                     },
                     {
-                      "action": "set_variable_value",
+                      "action": "set_variable_increment",
                       "values": [
                         {
                           "name": "variable",
@@ -1487,10 +1916,108 @@
                           }
                         },
                         {
-                          "name": "value",
+                          "name": "number",
                           "value": {
                             "type": "number",
-                            "number": "%math(%var_save(run.%player%.spd) + 1)"
+                            "number": 1
+                          }
+                        }
+                      ],
+                      "operations": []
+                    },
+                    {
+                      "action": "set_variable_multiply",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "variable",
+                                "variable": "run.%player%.spd",
+                                "scope": "save"
+                              },
+                              {
+                                "type": "number",
+                                "number": 0.02
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "operations": []
+                    },
+                    {
+                      "action": "set_variable_add",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "variable",
+                                "variable": "sp",
+                                "scope": "line"
+                              },
+                              {
+                                "type": "number",
+                                "number": 0.2
+                              },
+                              {
+                                "type": "variable",
+                                "variable": "run.%player%.bspd",
+                                "scope": "game"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "operations": []
+                    },
+                    {
+                      "action": "set_variable_min",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "variable",
+                                "variable": "sp",
+                                "scope": "line"
+                              },
+                              {
+                                "type": "number",
+                                "number": 1
+                              }
+                            ]
                           }
                         }
                       ],
@@ -1502,8 +2029,9 @@
                         {
                           "name": "distance",
                           "value": {
-                            "type": "number",
-                            "number": "%math(min(0.2 + %var_save(run.%player%.spd) * 0.02 + %var(run.%player%.bspd), 1))"
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
                           }
                         },
                         {
@@ -1730,7 +2258,7 @@
               ],
               "operations": [
                 {
-                  "action": "set_variable_value",
+                  "action": "set_variable_subtract",
                   "values": [
                     {
                       "name": "variable",
@@ -1743,15 +2271,26 @@
                     {
                       "name": "value",
                       "value": {
-                        "type": "number",
-                        "number": "%math(%var_save(run.%player%.coins) - %var_line(cost))"
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.coins",
+                            "scope": "save"
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "cost",
+                            "scope": "line"
+                          }
+                        ]
                       }
                     }
                   ],
                   "operations": []
                 },
                 {
-                  "action": "set_variable_value",
+                  "action": "set_variable_increment",
                   "values": [
                     {
                       "name": "variable",
@@ -1762,10 +2301,10 @@
                       }
                     },
                     {
-                      "name": "value",
+                      "name": "number",
                       "value": {
                         "type": "number",
-                        "number": "%math(%var_save(run.%player%.mul) + 1)"
+                        "number": 1
                       }
                     }
                   ],
@@ -1983,7 +2522,7 @@
               ],
               "operations": [
                 {
-                  "action": "set_variable_value",
+                  "action": "set_variable_increment",
                   "values": [
                     {
                       "name": "variable",
@@ -1994,10 +2533,10 @@
                       }
                     },
                     {
-                      "name": "value",
+                      "name": "number",
                       "value": {
                         "type": "number",
-                        "number": "%math(%var_save(run.%player%.reb) + 1)"
+                        "number": 1
                       }
                     }
                   ],
@@ -2033,13 +2572,112 @@
                   "operations": []
                 },
                 {
+                  "action": "set_variable_multiply",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.spd",
+                            "scope": "save"
+                          },
+                          {
+                            "type": "number",
+                            "number": 0.02
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_add",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
+                          },
+                          {
+                            "type": "number",
+                            "number": 0.2
+                          },
+                          {
+                            "type": "variable",
+                            "variable": "run.%player%.bspd",
+                            "scope": "game"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
+                  "action": "set_variable_min",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "variable",
+                            "variable": "sp",
+                            "scope": "line"
+                          },
+                          {
+                            "type": "number",
+                            "number": 1
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "operations": []
+                },
+                {
                   "action": "player_set_movement_speed",
                   "values": [
                     {
                       "name": "distance",
                       "value": {
-                        "type": "number",
-                        "number": "%math(min(0.2 + %var_save(run.%player%.spd) * 0.02 + %var(run.%player%.bspd), 1))"
+                        "type": "variable",
+                        "variable": "sp",
+                        "scope": "line"
                       }
                     },
                     {
@@ -2393,7 +3031,7 @@
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2406,15 +3044,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bmul), 1.5))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bmul",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 1.5
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2427,15 +3075,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bspd), 0.05))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bspd",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.05
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2448,8 +3106,18 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bt), 30))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bt",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 30
+                      }
+                    ]
                   }
                 }
               ],
@@ -2607,7 +3275,7 @@
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2620,15 +3288,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bmul), 2))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bmul",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 2
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2641,15 +3319,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bspd), 0.1))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bspd",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.1
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2662,8 +3350,18 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bt), 40))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bt",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 40
+                      }
+                    ]
                   }
                 }
               ],
@@ -2821,7 +3519,7 @@
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2834,15 +3532,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bmul), 3))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bmul",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 3
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2855,15 +3563,25 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bspd), 0.2))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bspd",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 0.2
+                      }
+                    ]
                   }
                 }
               ],
               "operations": []
             },
             {
-              "action": "set_variable_value",
+              "action": "set_variable_max",
               "values": [
                 {
                   "name": "variable",
@@ -2876,8 +3594,18 @@
                 {
                   "name": "value",
                   "value": {
-                    "type": "number",
-                    "number": "%math(max(%var(run.%player%.bt), 60))"
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "run.%player%.bt",
+                        "scope": "game"
+                      },
+                      {
+                        "type": "number",
+                        "number": 60
+                      }
+                    ]
                   }
                 }
               ],
